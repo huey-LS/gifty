@@ -46,10 +46,11 @@ datadepot.prototype.get = function(find){
   }
 }
 datadepot.prototype.getone = function(find){
-  var t,
+  var _self = this,
+    t,
     i=0;
   if(!find){
-    return datas[0];
+    return _self.datas[0];
   }else if(_self.isType(find, 'Function')){
     for(i=0,len=_self.datas.length;i<len;i++){
       if(find(t=_self.datas[i])){
@@ -68,7 +69,7 @@ datadepot.prototype.getone = function(find){
 }
 
 datadepot.prototype._add = function(data){
-  datas[datas.length] = data;
+  this.datas[this.datas.length] = data;
   return true;
 }
 
